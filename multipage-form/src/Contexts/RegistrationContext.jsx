@@ -30,14 +30,14 @@ const reducer = (state, action) => {
 export const RegistrationContextProvider = ({ children }) => {
     const [state, dispatch] = React.useReducer(reducer, initState);
 
-    const handleNext = () => {
+    const handleSubmit = () => {
         axios.post("http://localhost:8080/users", state).then((res) => {
             console.log(res.data);
         })
     }
     const { Name, Age, DOB, StateOfResidence, Address, Pincode } = state;
     return (
-        <RegistrationContext.Provider value={{ Name, Age, DOB, StateOfResidence, Address, Pincode, dispatch, handleNext }}>
+        <RegistrationContext.Provider value={{ Name, Age, DOB, StateOfResidence, Address, Pincode, dispatch, handleSubmit }}>
             {children}
         </RegistrationContext.Provider>
     )
