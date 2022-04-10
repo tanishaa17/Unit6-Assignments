@@ -1,9 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { RegistrationContext } from "../contexts/RegistrationContext";
+import { RegistrationContext } from "../Contexts/RegistrationContext";
+
 
 export const UserDetails = () => {
-    const { Name, Age, DOB, dispatch } = React.useContext(RegistrationContext);
+    const { Name, Age, DOB, dispatch } = React.useContext(RegistrationContext)
     const navigate = useNavigate();
     // useEffect(() => {
     //     getData();

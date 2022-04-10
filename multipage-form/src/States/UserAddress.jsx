@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import axios from "axios";
-import { RegistrationContext } from "../contexts/RegistrationContext";
+import React from "react";
+import { RegistrationContext } from "../Contexts/RegistrationContext";
 import { Navigate } from "react-router-dom";
 export const UserAddress = () => {
     const { dispatch, Name, Age, DOB, StateOfResidence, Address, Pincode, handleSubmit } = React.useContext(RegistrationContext);
