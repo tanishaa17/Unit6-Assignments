@@ -6,61 +6,60 @@ export const RestaurantDetails = () => {
     const [page, setPage] = useState(1);
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(true);
-    // "id": "",
-    // "restaurant_name": "",
-    // "category": "",
-    // "cost_for_one": "",
-    // "payment_methods": {
-    //     "card": "",
-    //     "cash": "",
-    //     "upi": ""
-    // },
-    // "total_votes": "",
-    // "reviews": ""
-
-    useEffect(() => {
-        getDetails();
-    }, [])
-    const Prev = (value) => {
-        setPage(page - value)
-    }
-    const Next = (value) => {
-        setPage(page + value)
-    }
-    const handleClick = (e) => {
-
-    }
+    console.log(restaurantData)
     const getDetails = async () => {
-        await axios.get(`http://localhost:8080/get-restaurants?_page=${page}&_limit=${4}`)
+        setLoading(true);
+        setError(false);
+        await axios.get(`http://localhost:8080/get-restaurants?_page=${page}&_limit=${5}`)
             .then((res) => {
                 // console.log(res.data)
+                setLoading(false);
                 setRestaurantData(res.data);
-            }).catch((err) => {
-                console.log(err);
+            }).catch((error) => {
+                setLoading(false);
+                setRestaurantData([]);
+                setError(true);
             })
     }
-    // function
+
+    // const addRestaurant = () => {
+    //     axios.post("http://localhost:8080/get-restaurants", restaurantData).then(() => {
+    //         setRestaurantData(...restaurantData);
+    //     })
+    // }
+    useEffect(() => {
+        getDetails();
+        AscPrice()
+        // addRestaurant();
+    }, [page]);
+
+    function AscPrice() {
+        setRestaurantData([...restaurantData.sort((a, b) => a.cost_for_one - b.cost_for_one)])
+    }
+    function DscPrice() {
+        setRestaurantData([...restaurantData.sort((a, b) => b.cost_for_one - a.cost_for_one)])
+    }
     return (
         <div className="container">
             <h1>HUNGER GAMES</h1>
             <div className="buttons">
                 <div className="ratings">
                     <h3>Sort by Ratings:</h3>
-                    <button onClick={handleClick}>4 Star</button>
-                    <button onClick={handleClick}>3 Star</button>
-                    <button onClick={handleClick}>2 Star</button>
-                    <button onClick={handleClick}>1 Star</button>
+                    <button >4 Star</button>
+                    <button >3 Star</button>
+                    <button >2 Star</button>
+                    <button >1 Star</button>
                 </div>
                 <div className="payment">
                     <h3>Sort by Payment:</h3>
-                    <button onClick={handleClick}>Cash Only</button>
-                    <button onClick={handleClick}>Card Only</button>
-                    <button onClick={handleClick}>All</button>
+                    <button >Cash Only</button>
+                    <button >Card Only</button>
+                    <button >All</button>
                 </div>
                 <div className="price">
                     <h3>Sort by Price:</h3>
-                    <button onClick={handleClick}>High to Low</button>
-                    <button onClick={handleClick}>Low to High</button>
+                    <button onClick={() => AscPrice()}>Low to High</button>
+                    <button onClick={() => DscPrice()}>High to Low</button>
                 </div>
             </div>
             <div className="allRestaurants">
@@ -72,10 +71,11 @@ export const RestaurantDetails = () => {
                                 <h2>{value.restaurant_name}</h2>
                                 <p>Category: {value.category}</p>
                                 <p>Price : ${value.cost_for_one}</p>
-                                {/* "payment_methods"= {
-                            "card": {value.id},
-                        "cash": {value.id},
-                        "upi": {value.id}
+                                {/* <p>Payment :{value.payment_methods}</p> */}
+                                {/* payment_methods= {
+                                    "card": {value.id},
+                                "cash": {value.id},
+                                "upi": {value.id}
                             }, */}
                                 <p>Votes: {value.total_votes}</p>
                                 <p>Reviews: {value.reviews}</p>
@@ -86,11 +86,13 @@ export const RestaurantDetails = () => {
             </div>
             {loading && <div>....loading</div>}
             <button
-                onClick={() => Prev(-1)}>Prev</button>
+                disabled={loading || page == 1}
+                onClick={() => setPage((page) => page - 1)}>PREV</button>
+
             <button
-                onClick={() => Next(1)}>Next</button>
+                disabled={loading || page == 10}
+                onClick={() => setPage((page) => page + 1)}>NEXT</button>
+            <h5>Current Page : {page}</h5>
         </div>
     )
 }
-// disabled={loading || page == 1}
-// disabled={loading || page.length - 1}
