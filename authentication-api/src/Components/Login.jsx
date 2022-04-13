@@ -49,8 +49,8 @@ export const Login = () => {
                             Remember me</label>
                         <span className="forgotPass">Forgot Your Password</span>
                     </div>
-                    {/* <input className="loginbtn" type="submit" value="LOG IN NOW" /> */}
-                    <button className="loginbtn" type="submit" >LOG IN</button>
+                    <input className="loginbtn" type="submit" value="LOG IN NOW" />
+                    {/* <button className="loginbtn" type="submit" >LOG IN</button> */}
                     <div className="privacy">Privacy Policy</div>
                 </form>
                 <div className="dontHaveAcnt">Don't have an Hunger Games Account? <Link to="/signup"><span className="under">Sign up</span></Link></div>
