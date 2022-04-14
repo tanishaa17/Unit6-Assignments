@@ -35,7 +35,7 @@ export const Login = () => {
         //     dispatch(loginFailure())
         // })
     }
-    if (isAuthenticated._id) {
+    if (isAuthenticated) {
         <Navigate to="/" />
     }
     return (

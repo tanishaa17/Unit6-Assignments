@@ -29,7 +29,7 @@ export const Signup = () => {
     const handleChange = (e) => {
         setForm(...form, e.target.value);
     }
-    if (isAuthenticated._id) {
+    if (isAuthenticated) {
         <Navigate to="/login" />
     }
 

@@ -16,8 +16,9 @@ export const signupReducer = (store = initState, { type, payload }) => {
         case SIGNUP_SUCCESS:
             return {
                 ...store,
+                user: payload,
                 isAuthenticated: true,
-                error: false
+                error: false,
             }
         case SIGNUP_FAILURE:
             return {
