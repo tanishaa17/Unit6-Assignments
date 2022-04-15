@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate } from "react-router-dom";
 import { userSignup } from "../Redux/Signup/action";
 import "./Signup.css";
+import axios from "axios";
 
 export const Signup = () => {
     const isAuthenticated = useSelector((state) => state.isAuthenticated);
@@ -17,17 +18,33 @@ export const Signup = () => {
     });
     const handleSubmit = (e) => {
         e.preventDefault();
+        // console.log("clicked")
+        // console.log(form)
         dispatch(userSignup(form));
-        setForm({
-            first_name: "",
-            last_name: "",
-            display_name: "",
-            email: "",
-            password: "",
-        });
+        // axios.post("http://localhost:8080/user", form).then((res) => {
+        //     console.log("res", res);
+        //     alert("User Registered successfully");
+        //     console.log(form)
+            // dispatch(signupSuccess(res.data.token));
+
+            // navigate("/login");
+        // }).catch((err) => {
+            // dispatch(signupFailure(err.res.data.message));
+        // })
+        // }
+        //     setForm({
+        //         first_name: "",
+        //         last_name: "",
+        //         display_name: "",
+        //         email: "",
+        //         password: "",
+        //     });
     }
     const handleChange = (e) => {
-        setForm(...form, e.target.value);
+        let { id, value } = e.target;
+        setForm({ ...form, [id]: value });
+        // console.log(form)
+
     }
     if (isAuthenticated) {
         <Navigate to="/login" />

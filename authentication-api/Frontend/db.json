@@ -1,0 +1,12 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "firstName": "Tanisha",
+      "lastName": "Gupta",
+      "displayName": "Tani",
+      "email": "t@g.com",
+      "password": "tanisha"
+    }
+  ]
+}

@@ -25,10 +25,11 @@ export const userSignup = (form) => {
     // });
     return (dispatch) => {
         dispatch(signupLoading());
-        axios.post("http://loca;host:8080/signup", form).then((res) => {
+        axios.post("http://localhost:8080/user", form).then((res) => {
             console.log("res", res);
             alert("User Registered successfully");
             dispatch(signupSuccess(res.data.token));
+            
             // navigate("/login");
         }).catch((err) => {
             dispatch(signupFailure(err.res.data.message));
