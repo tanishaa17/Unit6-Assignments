@@ -7,7 +7,7 @@ const signupSchema = new mongoose.Schema({
     displayName: { type: String, required: false },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    country: { type: String, required: true }
+    country: { type: String, required: false }
 }, {
     versionKey: false,
     timestamps: true

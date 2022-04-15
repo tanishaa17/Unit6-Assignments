@@ -1,0 +1,36 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "firstName": "Tanisha",
+      "lastName": "Gupta",
+      "displayName": "Tani",
+      "email": "t@g.com",
+      "password": "tanisha"
+    },
+    {
+      "first_name": "tanisha",
+      "last_name": "gupta",
+      "display_name": "tani",
+      "email": "a@t.com",
+      "password": "tanisha",
+      "id": 2
+    },
+    {
+      "first_name": "Anisha",
+      "last_name": "Gupta",
+      "display_name": "Ani",
+      "email": "a@g.com",
+      "password": "anisha",
+      "id": 3
+    },
+    {
+      "first_name": "Anisha",
+      "last_name": "Gupta",
+      "display_name": "Ani",
+      "email": "a@g.com",
+      "password": "anisha",
+      "id": 4
+    }
+  ]
+}
