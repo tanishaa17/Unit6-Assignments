@@ -1,17 +1,12 @@
-import { Route, Routes } from 'react-router-dom';
+import logo from './logo.svg';
 import './App.css';
-import { City } from './Components/City';
-import { Country } from './Components/Country';
-import { Home } from './Components/Home';
+
+import { AllRoutes } from './components/Routes';
 
 function App() {
   return (
     <div className="App">
-      <Routes>
-        <Route exact path='/' element={<Home />}></Route>
-        <Route exact path='/add-city' element={<City />}></Route>
-        <Route exact path='/add-country' element={<Country />}></Route>
-      </Routes>
+      <AllRoutes />
     </div>
   );
 }
