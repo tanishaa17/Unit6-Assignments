@@ -22,7 +22,7 @@ const Get_Data = () => async (dispatch) => {
 
     dispatch(reqCityData())
 
-    axios.get("https://reactreduxtesteval.herokuapp.com/cities").then((res) => {
+    axios.get("https://reactevaluation.herokuapp.com//add-city").then((res) => {
         console.log("resp", res.data)
         dispatch(getCityData(res.data))
     }).catch((error) => {
@@ -38,7 +38,7 @@ const AddCountry = (country) => async (dispatch) => {
 
     dispatch(countryAddReq({ msg: "Loading" }))
 
-    const res = await axios.post("http://localhost:8080/add-country", {
+    const res = await axios.post("https://reactevaluation.herokuapp.com/add-country", {
         country
     }).catch((err) => {
         dispatch(countryAddFail({ msg: err.response.data }))
@@ -55,7 +55,7 @@ const AddCity = (city_name, population, country_name) => async (dispatch) => {
 
     dispatch(cityAddReq({ msg: "Loading" }))
 
-    const res = await axios.post("https://reactreduxtesteval.herokuapp.com/cities", {
+    const res = await axios.post("https://reactevaluation.herokuapp.com/add-city", {
         city_name,
         population,
         country_name
