@@ -30,6 +30,8 @@ export const cityReducer = (store = initState, { type, payload }) => {
             }
 
         default:
-            store;
+            return {
+                store
+            }
     }
 }

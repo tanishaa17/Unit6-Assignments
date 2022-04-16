@@ -17,10 +17,10 @@ const countryFailed = (error) => ({
     payload: error
 })
 
-export const countryDetails = () => {
+export const countryDetails = (country) => {
     return (dispatch) => {
         dispatch(countryLoading());
-        axios.post("http://localhost:8080/add-country").then((res) => {
+        axios.post("http://localhost:8080/add-country", country).then((res) => {
             console.log(res.data);
             alert("Country added successfully!");
             dispatch(countryadded());

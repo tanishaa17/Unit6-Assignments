@@ -7,7 +7,7 @@ export const City = () => {
     // const cityName = useSelector((store) => store.cityName)
     const dispatch = useDispatch()
     const [city, setCity] = useState({
-        city: "",
+        cityName: "",
         population: ""
     })
     const handleSubmit = (e) => {
@@ -15,7 +15,7 @@ export const City = () => {
         dispatch(cityDetails(city));
 
     }
-    const handleChange = () => {
+    const handleChange = (e) => {
         let { className, value } = e.target;
         setCity({ ...city, [className]: value })
     }
@@ -23,8 +23,8 @@ export const City = () => {
         <div className="cityForm">
             <div>City</div>
             <form action="">
-                <input onChange={handleChange} className={cityName} type="text" placeholder='Enter City' />
-                <input onChange={handleChange} className={population} type="number" placeholder='Enter Population' />
+                <input onChange={handleChange} className="cityName" type="text" placeholder='Enter City' />
+                <input onChange={handleChange} className="population" type="number" placeholder='Enter Population' />
                 <Button onSubmit={handleSubmit} variant="contained">Add City</Button>
             </form>
         </div>

@@ -30,6 +30,9 @@ export const countryReducer = (store = initState, { type, payload }) => {
             }
 
         default:
-            store;
+            return {
+                store
+            }
+
     }
 }
