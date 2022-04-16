@@ -1,0 +1,28 @@
+import React from 'react'
+
+export const Country = () => {
+    const dispatch = useDispatch()
+    const [country, setCountry] = useState({
+        country: "",
+        population: ""
+    })
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(countryDetails(country));
+
+    }
+    const handleChange = () => {
+        let { className, value } = e.target;
+        setCountry({ ...country, [className]: value })
+    }
+    return (
+        <div className="countryForm">
+            <div>Country</div>
+            <form action="">
+                <input onChange={handleChange} className={countryName} type="text" placeholder='Enter Country' />
+                <input onChange={handleChange} className={population} type="number" placeholder='Enter Population' />
+                <Button onSubmit={handleSubmit} variant="contained">Add Country</Button>
+            </form>
+        </div>
+    )
+}
