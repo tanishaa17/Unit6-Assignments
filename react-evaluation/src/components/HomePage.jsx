@@ -48,11 +48,11 @@ export const HomePage = () => {
 
     return <>
         <h1>Country-City Data</h1>
-        <Link to="/addcountry"> <Button className="button" variant="contained" color="success">
+        <Link to="/addcountry"> <Button className="button" variant="contained">
             Add Country
         </Button></Link>
         <Link to="/addcity">
-            <Button className="button" variant="contained" color="success">
+            <Button className="button" variant="contained">
                 Add CIty
             </Button>
 

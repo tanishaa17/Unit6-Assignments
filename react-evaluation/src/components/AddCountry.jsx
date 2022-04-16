@@ -32,7 +32,7 @@ export const AddCountryy = () => {
         <h2>Add Country</h2>
         <input type="text" placeholder="enter country" className='country' onChange={handleChange} />
         <br /> <br />
-        <Button variant="contained" color="success" onClick={addcountry}>
+        <Button variant="contained" onClick={addcountry}>
             Add Country
         </Button>
 
