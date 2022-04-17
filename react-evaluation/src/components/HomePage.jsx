@@ -1,6 +1,5 @@
 import Button from '@mui/material/Button';
 import { Link } from "react-router-dom"
-
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -33,36 +32,28 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
         border: 0,
     },
 }));
-
-
 export const HomePage = () => {
     const { city } = useSelector((state) => state.cityCountry)
     console.log(city, "homepage")
     let dispatch = useDispatch()
 
-
     useEffect(() => {
-
         dispatch(Get_Data())
     }, [])
-
     return <>
         <h1>Country-City Data</h1>
-        <Link to="/addcountry"> <Button className="button" variant="contained">
+        <Link to="/addcountry" style={{ textDecoration: "none" }}> <Button className="button" variant="contained" color='error'>
             Add Country
         </Button></Link>
-        <Link to="/addcity">
-            <Button className="button" variant="contained">
+        <Link to="/addcity" style={{ textDecoration: "none" }}>
+            <Button className="button" variant="contained" color='error'>
                 Add CIty
             </Button>
-
         </Link>
-
-        <br />
         <br />
         <br />
         <TableContainer className={Styles.table} component={Paper}>
-            <Table sx={{ minWidth: 700 }} aria-label="customized table">
+            <Table sx={{ minWidth: 500 }} aria-label="customized table">
                 <TableHead>
                     <TableRow>
                         <StyledTableCell>No.</StyledTableCell>
@@ -77,8 +68,6 @@ export const HomePage = () => {
                     {city && city.map((city) => (
                         <StyledTableRow key={city.id}>
                             <StyledTableCell component="th" scope="row"> {city.id}</StyledTableCell>
-
-
                             <StyledTableCell align="center">{city.country_name}</StyledTableCell>
                             <StyledTableCell align="center">{city.city_name}</StyledTableCell>
                             <StyledTableCell align="center">{city.population}</StyledTableCell>
@@ -89,7 +78,5 @@ export const HomePage = () => {
                 </TableBody>
             </Table>
         </TableContainer>
-
-
     </>
 }

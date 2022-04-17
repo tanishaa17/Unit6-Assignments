@@ -4,12 +4,11 @@
       "country_name": "India",
       "id": 1
     }
-  
   ],
   "add-city": [
     {
-      "city_name": "New Delhi",
-      "population": "249998",
+      "city_name": "Delhi",
+      "population": "248958",
       "country_name": "India",
       "id": 1
     }

@@ -1,5 +1,4 @@
 import axios from "axios"
-import { useSelector } from "react-redux"
 import * as types from "./type"
 
 const countryAddReq = (payload) => ({ type: types.COUNTRY_ADD_REQ, payload })
@@ -14,11 +13,7 @@ const reqCityData = (payload) => ({ type: types.REQ_CITY_DATA, payload })
 const getCityData = (data) => ({ type: types.GET_CITY_DATA, payload: data })
 const reqCityDataFail = (payload) => ({ type: types.REQ_CITY_DATA_FAIL, payload })
 
-
-
 const Get_Data = () => async (dispatch) => {
-
-
 
     dispatch(reqCityData())
 
@@ -28,11 +23,7 @@ const Get_Data = () => async (dispatch) => {
     }).catch((error) => {
         dispatch(reqCityDataFail(error))
     })
-
 }
-
-
-
 
 const AddCountry = (country) => async (dispatch) => {
 
@@ -47,10 +38,7 @@ const AddCountry = (country) => async (dispatch) => {
         dispatch(countryAdded(res.data.country))
     }
     console.log(res, "res")
-
 }
-
-
 const AddCity = (city_name, population, country_name) => async (dispatch) => {
 
     dispatch(cityAddReq({ msg: "Loading" }))
@@ -66,7 +54,6 @@ const AddCity = (city_name, population, country_name) => async (dispatch) => {
         dispatch(cityAdded(res.data.city))
     }
     console.log(res, "res")
-
 }
 
 
