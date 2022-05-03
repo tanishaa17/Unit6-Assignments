@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Infinite Scrolling</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>INFINITE SCROLLING</h1>
+    </div>
+    <div class="box">
+        <ul id="infiniteList"> </ul>
+    </div>
+</body>
+
+<script>
+    let mainList = document.getElementById("infiniteList");
+    let count = 0;
+    const load = (() => {
+        for (let i = 0; i < 25; i++) {
+            count++;
+            let list = document.createElement("li");
+            list.innerHTML = "Masai Student" + " " + count;
+            mainList.append(list);
+        }
+    })
+
+    mainList.addEventListener("scroll", () => {
+        if (mainList.scrollTop + mainList.clientHeight >= mainList.scrollHeight) {
+            load()
+        }
+    })
+    load()
+</script>
+
+</html>

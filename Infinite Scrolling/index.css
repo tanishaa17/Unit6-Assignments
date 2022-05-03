@@ -1,0 +1,32 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.box {
+    width: 30%;
+    border: 10px double;
+    margin: auto;
+}
+
+.infiniteList {
+    width: 300px;
+    height: 400px;
+    overflow: auto;
+}
+
+li {
+    padding: 5%;
+    font-size: large;
+}
+
+li:hover {
+    background: white;
+    color: black;
+}
+
+.container {
+    width: 25%;
+    margin: auto;
+}
